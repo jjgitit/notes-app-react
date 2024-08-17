@@ -19,7 +19,7 @@
 .env.production.local
 
 # api_key
-.firebase.js
+firebase.js
 
 npm-debug.log*
 yarn-debug.log*
