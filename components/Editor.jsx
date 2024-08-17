@@ -15,7 +15,7 @@ export default function Editor({ currentNote, updateNote }) {
     return (
         <section className="pane editor">
             <ReactMde
-                value={currentNote.body}
+                value={currentNote?.body} // in case it doesn't exist
                 onChange={updateNote}
                 selectedTab={selectedTab}
                 onTabChange={setSelectedTab}
