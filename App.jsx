@@ -33,7 +33,7 @@ export default function App() {
 
   React.useEffect(() => {
     if (!currentNoteId) {
-      setCurrentNoteId(notes[0]?.id)
+      setCurrentNoteId(notes[0]?.id) //if a note exist, set it as current note and display it
     }
   }, [notes])
 
