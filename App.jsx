@@ -33,7 +33,7 @@ export default function App() {
 
   React.useEffect(() => {
     if (!currentNoteId) {
-      setCurrentNoteId(notes[0]?.id) //if a note exist, set it as current note and display it
+      setCurrentNoteId(notes[0]?.id)
     }
   }, [notes])
 
@@ -43,6 +43,15 @@ export default function App() {
     }
   }, [currentNote])
   
+  React.useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (tempNoteText !== currentNote.body) {
+        updateNote(tempNoteText)
+      }
+    }, 500)
+    return () => clearTimeout(timeoutId)
+  }, [tempNoteText])
+
 
   async function createNewNote() {
       const newNote = {
@@ -82,8 +91,8 @@ export default function App() {
                           deleteNote={deleteNote}
                       />
                       <Editor
-                          currentNote={currentNote}
-                          updateNote={updateNote}
+                          tempNoteText={tempNoteText}
+                          setTempNoteText={setTempNoteText}
                       />
                   </Split>
                   :
